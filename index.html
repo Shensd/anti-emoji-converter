@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ANTI EMOJI CONVERTER</title>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+            }
+
+            body {
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                background-color: white;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .content {
+                background-color: white;
+                height: 200px;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                padding: 20px;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            strikethrough = (emoji) => {
+                let sections = emoji.split('').map(c => c.charCodeAt(0));
+                let modified = String.fromCharCode(...sections, 8416);
+                return modified;
+            };
+
+            convert = () => {
+                let emoji = document.getElementById("in").value;
+                let converted = strikethrough(emoji);
+
+                document.getElementById("drop").innerHTML = converted;
+                document.getElementById("drop-raw").value = converted;
+            };
+        </script>
+        <div class="content">
+            <h1>ANTI EMOJI CONVERTER</h1>
+
+            <form>
+                <input id="in" name="in" type="text" />
+                <input name="submit" type="button" value="Strike" onClick="convert()"/>
+            </form>
+    
+            <h1 id="drop"></h1>
+        </div>
+    </body>
+</html>
