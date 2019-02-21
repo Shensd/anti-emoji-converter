@@ -2,73 +2,53 @@
 <html>
     <head>
         <title>ANTI EMOJI CONVERTER</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/x-icon" href="./res/favicon.ico"/>
+        <link rel="canonical" href="https://jackhance.com/anti-emoji-converter" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-16"/>
-        <style>
-            body, html {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                width: 100%;
-            }
+        <meta name="description" content="Convert any emoji to the anti version">
 
-            body {
-                display: flex;
-                align-content: center;
-                justify-content: center;
-                background-color: white;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .content {
-                background-color: white;
-                height: 200px;
-                display: flex;
-                flex-direction: column;
-                align-content: center;
-                justify-content: center;
-                padding: 20px;
-                border-radius: 4px;
-            }
-        </style>
+        <meta property="og:title" content="ANTI EMOJI CONVERTER"/>
+        <meta property="og:image" content="https://jackhance.com/anti-emoji-converter/res/icon.png"/>
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta property="og:site_name" content="ANTI EMOJI CONVERTER"/>
+        <meta property="og:description" content="Convert any emoji to the anti version"/>
     </head>
     <body>
-        <script>
-            strikethrough = (emoji) => {
-                let sections = emoji.split('').map(c => c.charCodeAt(0));
-                let modified = String.fromCharCode(...sections, 8416);
-                return modified;
-            };
-
-            convert = () => {
-                let emoji = document.getElementById("in").value;
-                let converted = strikethrough(emoji);
-
-                document.getElementById("drop").innerHTML = converted;
-                document.getElementById("drop-raw").value = converted;
-            };
-
-            copy_to_clipboard = () => {
-                let raw = document.getElementById("drop-raw");
-                raw.focus();
-                raw.select();
-                document.execCommand('copy')
-                navigator.clipboard.writeText(raw.value)
-            };
-        </script>
         <div class="content">
             <h1>ANTI EMOJI CONVERTER</h1>
 
-            <form>
-                <input id="in" name="in" type="text" placeholder="EMOJI HERE"/>
-                <input name="submit" type="button" value="Strike" onClick="convert()"/>
+            <form onsubmit="convert(); return false">
+                <input class="text-field" id="in" type="text" placeholder="🐴" onKeyUp="convert()"/>
+                <br/>
             </form>
-    
-            <h1 id="drop">🐴⃠</h1>
+            <div class="drop-holder">
+                <h1 id="drop">🐴⃠</h1>
+            </div>
             <form>
-                <input id="drop-raw" type="text" size=6/>
-                <input name="copy" type="button" value="Copy" onClick="copy_to_clipboard()"/>
+                <br/>
+                <input class="text-field" id="drop-raw" value="🐴⃠" size=6/>
+                <input class="copy btn" type="button" value="COPY" data-clipboard-target="#drop-raw" onClick="copyNotification()"/>
             </form>
-            
+
+            <div class="premades">
+                <h1>PREMADES</h1><br/>
+                <h3>(CLICK TO COPY)</h3><br/>
+                <button class="premade-btn copy" data-clipboard-text="🐴⃠" onClick="copyNotification()">🐴⃠ </button>
+                <button class="premade-btn copy" data-clipboard-text="👮🏻⃠" onClick="copyNotification()">👮🏻⃠ </button>
+                <button class="premade-btn copy" data-clipboard-text="️‍🏳️⃠" onClick="copyNotification()">🏳️⃠</button>
+                <button class="premade-btn copy" data-clipboard-text="🥧⃠" onClick="copyNotification()">🥧⃠</button>
+                <button class="premade-btn copy" data-clipboard-text="🍆⃠" onClick="copyNotification()">🍆⃠</button>
+            </div>
         </div>
+
+        <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script type="text/javascript" src="./js/clipboard.min.js"></script>
+        <script type="text/javascript" src="./js/emoji.js"></script>
     </body>
 </html>
