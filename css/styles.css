@@ -1,0 +1,87 @@
+body, html, * {
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.content {
+    background-color: white;
+    width: 100vw;
+    margin-top: 20px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.premades {
+    margin-top: 40px;
+}
+
+.premade-btn {
+    background-color: white;
+    border: none;
+    width: 100px;
+    font-size: 50px;
+    text-align: left;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.premade-btn:hover {
+    background-color: #ededed;
+}
+
+.text-field {
+    padding: 4px;
+    font-size: 25px;
+    width: 90vw;
+    text-align: center;
+}
+
+.btn {
+    font-size: 25px;
+    padding: 4px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    width: 90vw;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.btn:hover {
+    background-color: #ededed;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#drop {
+    height: 40px;
+    font-size: 70px;
+}
+
+.drop-holder {
+    height: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90vw;
+    text-align: center;
+}
